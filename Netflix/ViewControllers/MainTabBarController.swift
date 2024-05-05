@@ -18,9 +18,9 @@ final class MainTabBarController: UITabBarController {
         let nc4 = UINavigationController(rootViewController: DownloadsVC())
          
         nc1.tabBarItem.image = UIImage(systemName: "house")
-        nc2.tabBarItem.image = .init(systemName: "play.circle")
-        nc3.tabBarItem.image = .init(systemName: "magnifyingglass")
-        nc4.tabBarItem.image = .init(systemName: "arrow.down.to.line")
+        nc2.tabBarItem.image = UIImage(systemName: "play.circle")
+        nc3.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        nc4.tabBarItem.image = UIImage(systemName: "arrow.down.to.line")
         
         nc1.title = "Home"
         nc2.title = "Comming Soon"

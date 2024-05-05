@@ -63,7 +63,22 @@ final class HomeVC: UIViewController {
             do {
                 if let response: MovieResponse = try await viewModel.get(category: .nowPlaying) {
                     viewModel.setResponse(category: .nowPlaying, response: response)
-                    homeView.collectionView.reloadData()
+                    homeView.reloadSection(at: IndexSet(integer: Category.nowPlaying.index))
+                }
+                
+                if let response: MovieResponse = try await viewModel.get(category: .popular) {
+                    viewModel.setResponse(category: .popular, response: response)
+                    homeView.reloadSection(at: IndexSet(integer: Category.popular.index))
+                }
+                
+                if let response: MovieResponse = try await viewModel.get(category: .topRated) {
+                    viewModel.setResponse(category: .topRated, response: response)
+                    homeView.reloadSection(at: IndexSet(integer: Category.topRated.index))
+                }
+                
+                if let response: MovieResponse = try await viewModel.get(category: .upcoming) {
+                    viewModel.setResponse(category: .upcoming, response: response)
+                    homeView.reloadSection(at: IndexSet(integer: Category.upcoming.index))
                 }
             }
             catch {

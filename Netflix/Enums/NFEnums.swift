@@ -28,6 +28,21 @@ enum Category: String {
             return .upcoming
         }
     }
+    
+    var index: Int {
+        switch self {
+        case .banner:
+            0
+        case .nowPlaying:
+            1
+        case .popular:
+            2
+        case .topRated:
+            3
+        case .upcoming:
+            4
+        }
+    }
 }
 
 enum Section {

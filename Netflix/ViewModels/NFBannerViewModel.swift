@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NFBannerViewModel {
+final class NFBannerViewModel {
     
     private(set) var bannerURL: URL
     

@@ -18,7 +18,7 @@ final class NFAPICaller {
     func get<T: Decodable>(_ endPoint: NFEndPointType) async throws -> T? {
         
         guard let url = endPoint.url else { return nil }
-        let urlRequest = NSMutableURLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.httpMethod.rawValue
         urlRequest.allHTTPHeaderFields = endPoint.headers
         
