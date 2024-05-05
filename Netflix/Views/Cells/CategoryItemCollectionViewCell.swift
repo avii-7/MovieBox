@@ -6,16 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class CategoryItemCollectionViewCell: UICollectionViewCell {
-    static let Identifier = String(describing: CategoryItemCollectionViewCell.Type.self)
     
-    let titleLabel : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Jason Bling"
-        return label
-    }()
+    static let Identifier = String(describing: CategoryItemCollectionViewCell.self)
     
     private let imageView : UIImageView = {
         let imageView = UIImageView()
@@ -42,5 +37,12 @@ final class CategoryItemCollectionViewCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+    }
+    
+    func config(_ viewModel: MovieItem) {
+        let imageUrlString = ImageRequestBuilder.get(for: viewModel.posterPath)
+        if let url = URL(string: imageUrlString) {
+            imageView.sd_setImage(with: url)
+        }
     }
 }
