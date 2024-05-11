@@ -72,9 +72,11 @@ final class NFMovieItemTableViewCell: UITableViewCell {
     }
     
     func config(_ model: MovieItem) {
-        let imageUrlString = ImageRequestBuilder.get(for: model.posterPath)
-        if let url = URL(string: imageUrlString) {
-            posterImageView.sd_setImage(with: url)
+        if let posterPath = model.posterPath {
+            let imageUrlString = ImageRequestBuilder.get(for: posterPath)
+            if let url = URL(string: imageUrlString) {
+                posterImageView.sd_setImage(with: url)
+            }
         }
         
         titleLabel.text = model.title

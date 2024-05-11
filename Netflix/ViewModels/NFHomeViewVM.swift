@@ -39,7 +39,15 @@ final class NFHomeViewVM {
     }
     
     internal func get(category: Category) async throws -> MovieResponse? {
-        if let response: MovieResponse = try await NFAPICaller.shared.get(category.endPoint) {
+        let urlRequest = NFRestAPIRequest(
+            urlContruct: category.endPoint,
+            httpMethod: category.endPoint.httpMethod,
+            headers: category.endPoint.headers
+        )
+        
+        guard let urlRequest else { return nil }
+        
+        if let response: MovieResponse = try await NFAPICaller.shared.get(urlRequest) {
             return response
         }
         return nil

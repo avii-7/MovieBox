@@ -14,6 +14,7 @@ struct ImageRequestBuilder {
     
     static let width = 300
     
+    // Todo: Concatenation Problem
     static func get(for path: String) -> String {
         return "\(baseUrl)/w\(width)/\(path)"
     }

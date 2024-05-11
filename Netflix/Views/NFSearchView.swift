@@ -7,14 +7,52 @@
 
 import UIKit
 
-class NFSearchView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class NFSearchView: UIView {
+    
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for a Movie or Tv show"
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(
+            NFMovieItemTableViewCell.self,
+            forCellReuseIdentifier: NFMovieItemTableViewCell.Identifier
+        )
+        tableView.rowHeight = 100
+        return tableView
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addViews()
+        addConstraints()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addViews() {
+        addSubview(searchBar)
+        addSubview(tableView)
+    }
+    
+    private func addConstraints() {
+        NSLayoutConstraint.activate([
+            searchBar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
+            searchBar.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            searchBar.heightAnchor.constraint(equalToConstant: 40),
+            
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
 }

@@ -39,10 +39,12 @@ final class CategoryItemCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func config(_ viewModel: MovieItem) {
-        let imageUrlString = ImageRequestBuilder.get(for: viewModel.posterPath)
-        if let url = URL(string: imageUrlString) {
-            imageView.sd_setImage(with: url)
+    func config(_ model: MovieItem) {
+        if let posterPath = model.posterPath {
+            let imageUrlString = ImageRequestBuilder.get(for: posterPath)
+            if let url = URL(string: imageUrlString) {
+                imageView.sd_setImage(with: url)
+            }
         }
     }
 }

@@ -14,7 +14,22 @@ enum Category: String {
     case topRated = "Top Rated"
     case upcoming = "Upcoming"
     
-    var endPoint: NFEndPointType {
+    var endPoint: NFMovieListEndPoint {
+        switch self {
+        case .banner:
+            return .banner
+        case .nowPlaying:
+            return .nowPlaying
+        case .popular:
+            return .popular
+        case .topRated:
+            return .topRated
+        case .upcoming:
+            return .upcoming
+        }
+    }
+    
+    var endPoint1: NFMovieListEndPoint {
         switch self {
         case .banner:
             return .banner
@@ -31,16 +46,11 @@ enum Category: String {
     
     var index: Int {
         switch self {
-        case .banner:
-            0
-        case .nowPlaying:
-            1
-        case .popular:
-            2
-        case .topRated:
-            3
-        case .upcoming:
-            4
+        case .banner: 0
+        case .nowPlaying: 1
+        case .popular: 2
+        case .topRated: 3
+        case .upcoming: 4
         }
     }
 }

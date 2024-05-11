@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class UpcomingVC: UIViewController {
+final class NFUpcomingVC: UIViewController {
     
     private var upcomingView: NFUpcomingView!
     
@@ -35,7 +35,7 @@ final class UpcomingVC: UIViewController {
     private func getMovieList() {
         Task { @MainActor in
             do {
-                let movieList = try await viewModel.getMovieList()
+                let movieList = try await viewModel.getUpcomingMovieList()
                 if let movieList {
                     viewModel.setMovieItems(movieList)
                     upcomingView.tableView.reloadData()
@@ -54,7 +54,7 @@ final class UpcomingVC: UIViewController {
     }
 }
 
-extension UpcomingVC: UITableViewDataSource, UITableViewDelegate {
+extension NFUpcomingVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.movieList.count
@@ -62,9 +62,9 @@ extension UpcomingVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(
-            withIdentifier: NFUpcomingTableViewCell.Identifier,
+            withIdentifier: NFMovieItemTableViewCell.Identifier,
             for: indexPath
-        ) as? NFUpcomingTableViewCell {
+        ) as? NFMovieItemTableViewCell {
             
             let model = viewModel.movieList[indexPath.row]
             cell.config(model)

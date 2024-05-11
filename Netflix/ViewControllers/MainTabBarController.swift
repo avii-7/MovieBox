@@ -13,9 +13,9 @@ final class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let nc1 = UINavigationController(rootViewController: HomeVC())
-        let nc2 = UINavigationController(rootViewController: UpcomingVC())
-        let nc3 = UINavigationController(rootViewController: SearchVC())
-        let nc4 = UINavigationController(rootViewController: DownloadsVC())
+        let nc2 = UINavigationController(rootViewController: NFUpcomingVC())
+        let nc3 = UINavigationController(rootViewController: NFSearchVC())
+        let nc4 = UINavigationController(rootViewController: NFDownloadsVC())
          
         nc1.tabBarItem.image = UIImage(systemName: "house")
         nc2.tabBarItem.image = UIImage(systemName: "play.circle")

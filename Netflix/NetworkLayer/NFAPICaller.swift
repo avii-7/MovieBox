@@ -15,12 +15,12 @@ final class NFAPICaller {
     
     static let shared = NFAPICaller()
     
-    func get<T: Decodable>(_ endPoint: NFEndPointType) async throws -> T? {
+    func get<T: Decodable>(_ restRequest: NFRestAPIRequestProtocol) async throws -> T? {
         
-        guard let url = endPoint.url else { return nil }
+        guard let url = restRequest.urlComponents.url else { return nil }
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = endPoint.httpMethod.rawValue
-        urlRequest.allHTTPHeaderFields = endPoint.headers
+        urlRequest.httpMethod = restRequest.httpMethod.rawValue
+        urlRequest.allHTTPHeaderFields = restRequest.headers
         
         let (data, response) = try await URLSession.shared.data(for: urlRequest as URLRequest)
         

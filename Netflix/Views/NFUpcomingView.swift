@@ -13,8 +13,8 @@ final class NFUpcomingView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(
-            NFUpcomingTableViewCell.self,
-            forCellReuseIdentifier: NFUpcomingTableViewCell.Identifier
+            NFMovieItemTableViewCell.self,
+            forCellReuseIdentifier: NFMovieItemTableViewCell.Identifier
         )
         tableView.rowHeight = 100
         return tableView
