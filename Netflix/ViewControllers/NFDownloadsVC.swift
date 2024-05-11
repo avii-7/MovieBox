@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DownloadsVC: UIViewController {
+final class NFDownloadsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

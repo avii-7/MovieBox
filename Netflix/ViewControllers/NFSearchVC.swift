@@ -8,6 +8,13 @@
 import UIKit
 
 final class SearchVC: UIViewController {
+    
+    private var searchView: NFSearchView!
+    
+    override func loadView() {
+        searchView = NFSearchView()
+        view = searchView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class NFUpcomingTableViewCell: UITableViewCell {
+final class NFMovieItemTableViewCell: UITableViewCell {
     
-    static let Identifier = String(describing: NFUpcomingTableViewCell.self)
+    static let Identifier = String(describing: NFMovieItemTableViewCell.self)
     
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()

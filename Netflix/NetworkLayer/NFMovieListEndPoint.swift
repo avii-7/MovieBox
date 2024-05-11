@@ -25,11 +25,11 @@ protocol EndPoint {
     var headers: [String: String]? { get }
 }
 
-enum NFEndPointType {
+enum NFMovieListEndPoint {
     case popular, nowPlaying, topRated ,upcoming, banner
 }
 
-extension NFEndPointType: EndPoint {
+extension NFMovieListEndPoint: EndPoint {
     
     var path: String {
         switch self {
