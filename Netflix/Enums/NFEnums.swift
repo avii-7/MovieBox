@@ -7,54 +7,6 @@
 
 import Foundation
 
-enum Category: String {
-    case banner = "Banner"
-    case nowPlaying = "Now Playing"
-    case popular = "Popular"
-    case topRated = "Top Rated"
-    case upcoming = "Upcoming"
-    
-    var endPoint: NFMovieListEndPoint {
-        switch self {
-        case .banner:
-            return .banner
-        case .nowPlaying:
-            return .nowPlaying
-        case .popular:
-            return .popular
-        case .topRated:
-            return .topRated
-        case .upcoming:
-            return .upcoming
-        }
-    }
-    
-    var endPoint1: NFMovieListEndPoint {
-        switch self {
-        case .banner:
-            return .banner
-        case .nowPlaying:
-            return .nowPlaying
-        case .popular:
-            return .popular
-        case .topRated:
-            return .topRated
-        case .upcoming:
-            return .upcoming
-        }
-    }
-    
-    var index: Int {
-        switch self {
-        case .banner: 0
-        case .nowPlaying: 1
-        case .popular: 2
-        case .topRated: 3
-        case .upcoming: 4
-        }
-    }
-}
-
 enum Section {
     case banner(viewModel: NFBannerViewModel)
     case nowPlaying(viewModel: NFCategoryViewModel)
@@ -62,18 +14,18 @@ enum Section {
     case topRated(viewModel: NFCategoryViewModel)
     case upcoming(viewModel: NFCategoryViewModel)
     
-    var category: Category {
+    var category: NFList {
         switch self {
         case .banner:
-            return Category.banner
+            return NFList.banner
         case .nowPlaying:
-            return Category.nowPlaying
+            return NFList.nowPlaying
         case .popular:
-            return Category.popular
+            return NFList.popular
         case .topRated:
-            return .topRated
+            return NFList.topRated
         case .upcoming:
-            return .upcoming
+            return NFList.upcoming
         }
     }
 }

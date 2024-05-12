@@ -9,13 +9,13 @@ import Foundation
 
 final class NFBannerViewModel {
     
-    private(set) var bannerURL: URL
+    private(set) var bannerURLString: String?
     
-    init(bannerURL: URL) {
-        self.bannerURL = bannerURL
+    init(bannerURLString: String?) {
+        self.bannerURLString = bannerURLString
     }
     
-    func setUrl(_ url: URL) {
-        bannerURL = url
-    }
+//    func setUrl(_ url: URL) {
+//        bannerURLString = url
+//    }
 }

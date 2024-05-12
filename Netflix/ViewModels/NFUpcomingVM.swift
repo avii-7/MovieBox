@@ -13,17 +13,9 @@ final class NFUpcomingVM {
     
     func getUpcomingMovieList() async throws -> MovieResponse? {
         
-        let category = Category.upcoming
+        let category = NFCategoryListType.Movie(list: NFList.upcoming)
         
-        let urlRequest = NFRestAPIRequest(
-            urlContruct: category.endPoint,
-            httpMethod: category.endPoint.httpMethod,
-            headers: category.endPoint.headers
-        )
-        
-        guard let urlRequest else { return nil }
-        
-        if let response: MovieResponse = try await NFAPICaller.shared.get(urlRequest) {
+        if let response: MovieResponse = try await NFAPICaller.shared.get(category) {
             return response
         }
         return nil

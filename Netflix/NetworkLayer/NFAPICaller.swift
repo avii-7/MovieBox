@@ -7,7 +7,10 @@
 
 import Foundation
 
-
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+}
 
 final class NFAPICaller {
     
@@ -15,9 +18,10 @@ final class NFAPICaller {
     
     static let shared = NFAPICaller()
     
-    func get<T: Decodable>(_ restRequest: NFRestAPIRequestProtocol) async throws -> T? {
+    func get<T: Decodable>(_ restRequest: NFAPIRequestProtocol) async throws -> T? {
         
-        guard let url = restRequest.urlComponents.url else { return nil }
+        guard let url = getURL(from: restRequest) else { return nil}
+        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = restRequest.httpMethod.rawValue
         urlRequest.allHTTPHeaderFields = restRequest.headers
@@ -33,4 +37,31 @@ final class NFAPICaller {
         
         return nil
     }
+    
+    func getURL(from restRequest: NFAPIRequestProtocol) -> URL? {
+    
+    let baseURL = restRequest.baseURL
+    
+    guard var url = URL(string: baseURL) else { return nil }
+    
+    url.append(path: restRequest.version, directoryHint: .notDirectory)
+    
+    if restRequest.pathComponents.isEmpty == false {
+        for pathComponent in restRequest.pathComponents {
+            url.append(path: pathComponent, directoryHint: .notDirectory)
+        }
+    }
+    
+    guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+        return nil
+    }
+    
+    if let queryItems = restRequest.queryItems {
+        urlComponents.queryItems = queryItems
+    }
+    
+    print(urlComponents.url ?? "Fail")
+    
+    return urlComponents.url
+}
 }

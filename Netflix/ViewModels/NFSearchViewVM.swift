@@ -15,17 +15,9 @@ final class NFSearchViewVM {
         
         let queryItem = URLQueryItem(name: "query", value: text)
         
-        let searchMovieEndPoint = NFSearchEndPoint.Movie(queries: [queryItem])
+        let searchMovieEndPoint = NFSearchEndPoint.Movie(query: queryItem)
         
-        let urlRequest = NFRestAPIRequest(
-            urlContruct: searchMovieEndPoint,
-            httpMethod: searchMovieEndPoint.httpMethod,
-            headers: searchMovieEndPoint.headers
-        )
-        
-        guard let urlRequest else { return nil }
-        
-        if let response: MovieResponse = try await NFAPICaller.shared.get(urlRequest) {
+        if let response: MovieResponse = try await NFAPICaller.shared.get(searchMovieEndPoint) {
             return response
         }
         

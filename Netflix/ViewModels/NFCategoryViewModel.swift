@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NFCategoryViewModel {
+final class NFCategoryViewModel {
     
     let name: String
     var items: [MovieItem]

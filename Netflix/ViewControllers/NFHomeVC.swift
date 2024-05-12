@@ -61,24 +61,24 @@ final class HomeVC: UIViewController {
     private func callApis() {
         Task { @MainActor in
             do {
-                if let response: MovieResponse = try await viewModel.get(category: .nowPlaying) {
+                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .nowPlaying)) {
                     viewModel.setResponse(category: .nowPlaying, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: Category.nowPlaying.index))
+                    homeView.reloadSection(at: IndexSet(integer: NFList.nowPlaying.index))
                 }
                 
-                if let response: MovieResponse = try await viewModel.get(category: .popular) {
+                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .popular)){
                     viewModel.setResponse(category: .popular, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: Category.popular.index))
+                    homeView.reloadSection(at: IndexSet(integer: NFList.popular.index))
                 }
                 
-                if let response: MovieResponse = try await viewModel.get(category: .topRated) {
+                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .topRated)) {
                     viewModel.setResponse(category: .topRated, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: Category.topRated.index))
+                    homeView.reloadSection(at: IndexSet(integer: NFList.topRated.index))
                 }
                 
-                if let response: MovieResponse = try await viewModel.get(category: .upcoming) {
+                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .upcoming)) {
                     viewModel.setResponse(category: .upcoming, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: Category.upcoming.index))
+                    homeView.reloadSection(at: IndexSet(integer: NFList.upcoming.index))
                 }
             }
             catch {
@@ -126,9 +126,6 @@ extension HomeVC: UICollectionViewDataSource {
                 let section = viewModel.sections[indexPath.section]
                 
                 switch section {
-                    
-                case .banner:
-                    break
                 case .nowPlaying(let vm):
                     let movieItem = vm.items[indexPath.row]
                     cell.config(movieItem)
@@ -141,6 +138,8 @@ extension HomeVC: UICollectionViewDataSource {
                 case .upcoming(let vm):
                     let movieItem = vm.items[indexPath.row]
                     cell.config(movieItem)
+                default: // banner
+                    break
                 }
                 
                 return cell;
@@ -161,8 +160,6 @@ extension HomeVC: UICollectionViewDataSource {
             let section = viewModel.sections[indexPath.section]
             
             switch section {
-            case .banner:
-                break
             case .nowPlaying(let vm):
                 view.setTitle(title: vm.name)
             case .popular(let vm):
@@ -171,6 +168,8 @@ extension HomeVC: UICollectionViewDataSource {
                 view.setTitle(title: vm.name)
             case .upcoming(let vm):
                 view.setTitle(title: vm.name)
+            case .banner:
+                break
             }
             
             return view

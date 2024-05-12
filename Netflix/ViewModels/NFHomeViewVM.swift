@@ -17,48 +17,41 @@ final class NFHomeViewVM {
     
     private func setupSections() {
         
-        if let bannerURL = URL(string: "www.google.com") {
-            sections.append(.banner(viewModel: NFBannerViewModel(bannerURL: bannerURL)))
-        }
-
+        sections.append(.banner(viewModel: NFBannerViewModel(bannerURLString: "")))
+        
         sections.append(Section.nowPlaying(
-            viewModel: NFCategoryViewModel(name: Category.nowPlaying.rawValue, items: [])
+            viewModel: NFCategoryViewModel(name: NFList.nowPlaying.name, items: [])
         ))
         
         sections.append(Section.popular(
-            viewModel: NFCategoryViewModel(name: Category.popular.rawValue, items: [])
+            viewModel: NFCategoryViewModel(name: NFList.popular.name, items: [])
         ))
         
         sections.append(Section.topRated(
-            viewModel: NFCategoryViewModel(name: Category.topRated.rawValue, items: [])
+            viewModel: NFCategoryViewModel(name: NFList.topRated.name, items: [])
         ))
         
         sections.append(Section.upcoming(
-            viewModel: NFCategoryViewModel(name: Category.upcoming.rawValue, items: [])
+            viewModel: NFCategoryViewModel(name: NFList.upcoming.name, items: [])
         ))
     }
     
-    internal func get(category: Category) async throws -> MovieResponse? {
-        let urlRequest = NFRestAPIRequest(
-            urlContruct: category.endPoint,
-            httpMethod: category.endPoint.httpMethod,
-            headers: category.endPoint.headers
-        )
+    internal func get(categoryList: NFCategoryListType) async throws -> MovieResponse? {
         
-        guard let urlRequest else { return nil }
-        
-        if let response: MovieResponse = try await NFAPICaller.shared.get(urlRequest) {
+        if let response: MovieResponse = try await NFAPICaller.shared.get(categoryList) {
             return response
         }
         return nil
     }
     
-    internal func setResponse(category: Category, response: MovieResponse) {
+    internal func setResponse(category: NFList, response: MovieResponse) {
         if let section = sections.first(where: { $0.category == category }) {
             
             let movieResults = response.results
             
             switch section {
+            case .banner:
+                break
             case .nowPlaying(let vm):
                 vm.setMovieItems(movieResults)
             case .popular(let vm):
@@ -67,8 +60,6 @@ final class NFHomeViewVM {
                 vm.setMovieItems(movieResults)
             case .upcoming(let vm):
                 vm.setMovieItems(movieResults)
-            default:
-                break
             }
         }
     }
