@@ -2,29 +2,20 @@
 //  NFSearchView.swift
 //  Netflix
 //
-//  Created by Arun on 09/05/24.
+//  Created by Arun on 12/05/24.
 //
 
 import UIKit
 
 final class NFSearchView: UIView {
     
-    let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for a Movie or Tv show"
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        return searchBar
-    }()
-    
-    let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(
-            NFMovieItemTableViewCell.self,
-            forCellReuseIdentifier: NFMovieItemTableViewCell.Identifier
-        )
-        tableView.rowHeight = 100
-        return tableView
+    private var placeholderLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Type the text to search"
+        label.textColor = .label
+        label.textAlignment = .center
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -37,22 +28,16 @@ final class NFSearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addViews() {
-        addSubview(searchBar)
-        addSubview(tableView)
+    func addViews() {
+        addSubview(placeholderLabel)
     }
     
-    private func addConstraints() {
+    func addConstraints() {
         NSLayoutConstraint.activate([
-            searchBar.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
-            searchBar.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
-            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            searchBar.heightAnchor.constraint(equalToConstant: 40),
-            
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            placeholderLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
+            placeholderLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
+            placeholderLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            placeholderLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
         ])
     }
 }
