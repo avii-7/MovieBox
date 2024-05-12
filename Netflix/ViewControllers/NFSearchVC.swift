@@ -23,6 +23,11 @@ final class NFSearchVC: UIViewController {
         setupViewController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.searchController?.searchBar.becomeFirstResponder()
+    }
+    
     private func setupViewController() {
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true

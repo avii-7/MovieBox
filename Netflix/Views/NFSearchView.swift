@@ -36,7 +36,6 @@ final class NFSearchView: UIView {
         NSLayoutConstraint.activate([
             placeholderLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
             placeholderLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
-            placeholderLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             placeholderLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
         ])
     }

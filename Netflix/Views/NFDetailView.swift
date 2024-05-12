@@ -8,7 +8,7 @@
 import UIKit
 import YouTubeiOSPlayerHelper
 
-final class NFVideoDetailView: UIView {
+final class NFDetailView: UIView {
     
     let ytPlayerView: YTPlayerView = {
         let view = YTPlayerView()
@@ -16,10 +16,19 @@ final class NFVideoDetailView: UIView {
         return view
     }()
     
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.numberOfLines = 0
+        return label
+    }()
+    
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
+        label.numberOfLines = 0
         return label
     }()
     
@@ -32,6 +41,7 @@ final class NFVideoDetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .systemBackground
         addViews()
         addConstraints()
     }
@@ -42,6 +52,7 @@ final class NFVideoDetailView: UIView {
     
     private func addViews() {
         addSubview(ytPlayerView)
+        addSubview(titleLabel)
         addSubview(descriptionLabel)
     }
     
@@ -51,10 +62,14 @@ final class NFVideoDetailView: UIView {
             ytPlayerView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             ytPlayerView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
             ytPlayerView.heightAnchor.constraint(equalToConstant: 300),
+            
+            titleLabel.topAnchor.constraint(equalTo: ytPlayerView.bottomAnchor, constant: 10),
+            titleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
+            titleLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
 
-            descriptionLabel.topAnchor.constraint(equalTo: ytPlayerView.bottomAnchor),
-            descriptionLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-            descriptionLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            descriptionLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
+            descriptionLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
         ])
     }
     

@@ -24,14 +24,12 @@ enum NFSearchEndPoint {
     }
 }
 
-
 extension NFSearchEndPoint : NFAPIRequestProtocol {
     
     var pathComponents: [String] {
         let pathComponents = ["search", category.urlPath]
         return pathComponents
     }
-    
     
     var queryItems: [URLQueryItem]? {
         

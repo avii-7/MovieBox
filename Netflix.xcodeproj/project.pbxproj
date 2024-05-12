@@ -17,14 +17,17 @@
 		865534112BEF0955001C9B57 /* NFSearchEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865534102BEF0955001C9B57 /* NFSearchEndPoint.swift */; };
 		865534152BEF4942001C9B57 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865534142BEF4942001C9B57 /* String+Extensions.swift */; };
 		8665069E2BF0A30B0083FA99 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 8665069D2BF0A30B0083FA99 /* YouTubeiOSPlayerHelper */; };
-		866506A02BF0A3410083FA99 /* NFVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8665069F2BF0A3410083FA99 /* NFVideoDetailVC.swift */; };
-		866506A22BF0A3570083FA99 /* NFVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506A12BF0A3570083FA99 /* NFVideoDetailView.swift */; };
+		866506A02BF0A3410083FA99 /* NFDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8665069F2BF0A3410083FA99 /* NFDetailVC.swift */; };
+		866506A22BF0A3570083FA99 /* NFDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506A12BF0A3570083FA99 /* NFDetailView.swift */; };
 		866506A72BF0C2C10083FA99 /* NFCategory+URLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506A62BF0C2C10083FA99 /* NFCategory+URLPath.swift */; };
 		866506A92BF0C2EA0083FA99 /* NFCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506A82BF0C2EA0083FA99 /* NFCategory.swift */; };
 		866506B12BF0CB750083FA99 /* NFList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B02BF0CB750083FA99 /* NFList.swift */; };
 		866506B32BF0CCE80083FA99 /* NFList+URLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B22BF0CCE80083FA99 /* NFList+URLPath.swift */; };
 		866506B52BF0CF200083FA99 /* NFCategoryListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B42BF0CF200083FA99 /* NFCategoryListType.swift */; };
 		867535452BF0510700A585A3 /* NFSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867535442BF0510700A585A3 /* NFSearchView.swift */; };
+		868AE0D92BF112EE0088CC38 /* NFDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AE0D82BF112EE0088CC38 /* NFDetailVM.swift */; };
+		868AE0DD2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AE0DC2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift */; };
+		868AE0DF2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AE0DE2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift */; };
 		86B01A9D2BCD979D00AC7A91 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B01A9C2BCD979D00AC7A91 /* MovieResponse.swift */; };
 		86BCE1362BEC79F900097AC4 /* NFSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */; };
 		86BCE1382BEC7CDD00097AC4 /* NFSearchViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE1372BEC7CDD00097AC4 /* NFSearchViewVM.swift */; };
@@ -57,14 +60,17 @@
 		8655340E2BEF0900001C9B57 /* NFAPIRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFAPIRequestProtocol.swift; sourceTree = "<group>"; };
 		865534102BEF0955001C9B57 /* NFSearchEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchEndPoint.swift; sourceTree = "<group>"; };
 		865534142BEF4942001C9B57 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		8665069F2BF0A3410083FA99 /* NFVideoDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFVideoDetailVC.swift; sourceTree = "<group>"; };
-		866506A12BF0A3570083FA99 /* NFVideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFVideoDetailView.swift; sourceTree = "<group>"; };
+		8665069F2BF0A3410083FA99 /* NFDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDetailVC.swift; sourceTree = "<group>"; };
+		866506A12BF0A3570083FA99 /* NFDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDetailView.swift; sourceTree = "<group>"; };
 		866506A62BF0C2C10083FA99 /* NFCategory+URLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFCategory+URLPath.swift"; sourceTree = "<group>"; };
 		866506A82BF0C2EA0083FA99 /* NFCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategory.swift; sourceTree = "<group>"; };
 		866506B02BF0CB750083FA99 /* NFList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFList.swift; sourceTree = "<group>"; };
 		866506B22BF0CCE80083FA99 /* NFList+URLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFList+URLPath.swift"; sourceTree = "<group>"; };
 		866506B42BF0CF200083FA99 /* NFCategoryListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryListType.swift; sourceTree = "<group>"; };
 		867535442BF0510700A585A3 /* NFSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchView.swift; sourceTree = "<group>"; };
+		868AE0D82BF112EE0088CC38 /* NFDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDetailVM.swift; sourceTree = "<group>"; };
+		868AE0DC2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryVideEndPoint.swift; sourceTree = "<group>"; };
+		868AE0DE2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryVideoResponse.swift; sourceTree = "<group>"; };
 		86B01A9C2BCD979D00AC7A91 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchResultView.swift; sourceTree = "<group>"; };
 		86BCE1372BEC7CDD00097AC4 /* NFSearchViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchViewVM.swift; sourceTree = "<group>"; };
@@ -112,7 +118,7 @@
 				86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */,
 				863765302BE7A8A1001BA126 /* NFUpcomingView.swift */,
 				867535442BF0510700A585A3 /* NFSearchView.swift */,
-				866506A12BF0A3570083FA99 /* NFVideoDetailView.swift */,
+				866506A12BF0A3570083FA99 /* NFDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,8 +134,9 @@
 		866506AA2BF0C4280083FA99 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				866506AD2BF0C4710083FA99 /* Search */,
 				866506AC2BF0C4680083FA99 /* List */,
+				868AE0DA2BF1137E0088CC38 /* Detail */,
+				866506AD2BF0C4710083FA99 /* Search */,
 				866506A62BF0C2C10083FA99 /* NFCategory+URLPath.swift */,
 			);
 			path = Category;
@@ -152,10 +159,19 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		868AE0DA2BF1137E0088CC38 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				868AE0DC2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		86D34FBD2BCA851000E76076 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				86B01A9C2BCD979D00AC7A91 /* MovieResponse.swift */,
+				868AE0DE2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -168,6 +184,7 @@
 				86D9F2392BCC26A600D84982 /* NFHomeViewVM.swift */,
 				863765342BE7B7DA001BA126 /* NFUpcomingVM.swift */,
 				86BCE1372BEC7CDD00097AC4 /* NFSearchViewVM.swift */,
+				868AE0D82BF112EE0088CC38 /* NFDetailVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -271,7 +288,7 @@
 				86DF31962BC5B2EE00D7332B /* NFDownloadsVC.swift */,
 				86DF317E2BC5AEA300D7332B /* MainTabBarController.swift */,
 				86FBC1F82BEFA39D0003AE43 /* NFSearchResultVC.swift */,
-				8665069F2BF0A3410083FA99 /* NFVideoDetailVC.swift */,
+				8665069F2BF0A3410083FA99 /* NFDetailVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,7 +382,7 @@
 				867535452BF0510700A585A3 /* NFSearchView.swift in Sources */,
 				865534152BEF4942001C9B57 /* String+Extensions.swift in Sources */,
 				866506A72BF0C2C10083FA99 /* NFCategory+URLPath.swift in Sources */,
-				866506A22BF0A3570083FA99 /* NFVideoDetailView.swift in Sources */,
+				866506A22BF0A3570083FA99 /* NFDetailView.swift in Sources */,
 				863765332BE7A93A001BA126 /* NFMovieItemTableViewCell.swift in Sources */,
 				86D34FC22BCA85D700E76076 /* CategoryItemCollectionViewCell.swift in Sources */,
 				866506B32BF0CCE80083FA99 /* NFList+URLPath.swift in Sources */,
@@ -374,13 +391,16 @@
 				863765352BE7B7DA001BA126 /* NFUpcomingVM.swift in Sources */,
 				8637652C2BE78353001BA126 /* ImageRequestBuilder.swift in Sources */,
 				86DF317D2BC5AEA300D7332B /* SceneDelegate.swift in Sources */,
+				868AE0DF2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift in Sources */,
 				86D9F2342BCC23F200D84982 /* NFEnums.swift in Sources */,
+				868AE0D92BF112EE0088CC38 /* NFDetailVM.swift in Sources */,
 				8639A57F2BC9A6E300FF4A0F /* NFHomeView.swift in Sources */,
 				86DF31922BC5B15D00D7332B /* NFUpcomingVC.swift in Sources */,
+				868AE0DD2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift in Sources */,
 				86D9F2362BCC246800D84982 /* NFBannerViewModel.swift in Sources */,
 				86D34FC62BCA87F600E76076 /* BannerCollectionViewCell.swift in Sources */,
 				86D9F23C2BCC2E1100D84982 /* NFAPICaller.swift in Sources */,
-				866506A02BF0A3410083FA99 /* NFVideoDetailVC.swift in Sources */,
+				866506A02BF0A3410083FA99 /* NFDetailVC.swift in Sources */,
 				86FBC1F92BEFA39D0003AE43 /* NFSearchResultVC.swift in Sources */,
 				86B01A9D2BCD979D00AC7A91 /* MovieResponse.swift in Sources */,
 				86DF31902BC5B15300D7332B /* NFHomeVC.swift in Sources */,

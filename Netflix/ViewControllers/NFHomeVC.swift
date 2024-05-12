@@ -46,12 +46,11 @@ final class HomeVC: UIViewController {
         
         navigationItem.rightBarButtonItems = [personBarButtonItem, playBarButtonItem]
         navigationController?.navigationBar.tintColor = .white
-        
-        navigationController?.hidesBarsOnSwipe = true
     }
     
     private func setupView() {
         homeView.collectionView.dataSource = self
+        homeView.collectionView.delegate = self
     }
     
     private func setupViewModel() {
@@ -85,6 +84,18 @@ final class HomeVC: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 }
 
@@ -176,5 +187,32 @@ extension HomeVC: UICollectionViewDataSource {
         }
         
         return .init()
+    }
+}
+
+extension HomeVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = viewModel.sections[indexPath.section]
+        
+        let movie: MovieItem?
+        
+        switch section {
+        case .banner:
+            movie = nil
+        case .nowPlaying(let vm):
+            movie = vm.items[indexPath.row]
+        case .popular(let vm):
+            movie = vm.items[indexPath.row]
+        case .topRated(let vm):
+            movie = vm.items[indexPath.row]
+        case .upcoming(let vm):
+            movie = vm.items[indexPath.row]
+        }
+        
+        if let movie {
+            let detailVC = NFDetailVC(movie: movie)
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
 }
