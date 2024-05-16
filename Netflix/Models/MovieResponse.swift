@@ -30,6 +30,7 @@ struct MovieItem: Decodable {
     let originalTitle: String
     let overview: String
     let popularity: Double
+    let backdropPath: String?
     let posterPath: String?
     let releaseDate: String
     let title: String
@@ -45,6 +46,7 @@ struct MovieItem: Decodable {
         case overview
         case popularity
         case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
         case releaseDate = "release_date"
         case title
         case video

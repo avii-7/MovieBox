@@ -14,7 +14,7 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     private let bannerImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "photo")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -90,5 +90,18 @@ final class BannerCollectionViewCell: UICollectionViewCell {
         ]
         
         NSLayoutConstraint.activate(bannerImageConstraints + buttonConstraints)
+    }
+    
+    func config(model: MovieItem?) {
+        
+        guard let model else { return }
+        
+        if let posterPath = model.backdropPath {
+            let fullImageURLString = ImageRequestBuilder.get(for: posterPath, width: Int(500))
+            
+            if let posterURL = URL(string: fullImageURLString) {
+                bannerImageView.sd_setImage(with: posterURL)
+            }
+        }
     }
 }

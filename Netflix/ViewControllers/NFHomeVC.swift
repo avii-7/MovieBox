@@ -13,6 +13,8 @@ final class HomeVC: UIViewController {
     
     private var viewModel: NFHomeViewVM!
     
+    private var randomHeroHeaderMovieItem: MovieItem?
+    
     override func loadView() {
         homeView = NFHomeView()
         view = homeView
@@ -62,22 +64,24 @@ final class HomeVC: UIViewController {
             do {
                 if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .nowPlaying)) {
                     viewModel.setResponse(category: .nowPlaying, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: NFList.nowPlaying.index))
+                    homeView.reloadSection(type: NFList.nowPlaying)
                 }
                 
                 if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .popular)){
                     viewModel.setResponse(category: .popular, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: NFList.popular.index))
+                    randomHeroHeaderMovieItem = response.results.randomElement()
+                    homeView.reloadSection(type: NFList.popular)
+                    homeView.reloadSection(type: NFList.banner)
                 }
                 
                 if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .topRated)) {
                     viewModel.setResponse(category: .topRated, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: NFList.topRated.index))
+                    homeView.reloadSection(type: NFList.topRated)
                 }
                 
                 if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .upcoming)) {
                     viewModel.setResponse(category: .upcoming, response: response)
-                    homeView.reloadSection(at: IndexSet(integer: NFList.upcoming.index))
+                    homeView.reloadSection(type: NFList.upcoming)
                 }
             }
             catch {
@@ -125,6 +129,7 @@ extension HomeVC: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.Identifier, for: indexPath) as? BannerCollectionViewCell {
+                cell.config(model: randomHeroHeaderMovieItem)
                 return cell;
             }
         }

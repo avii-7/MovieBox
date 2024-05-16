@@ -113,7 +113,7 @@ final class NFHomeView: UIView {
         return section
     }
     
-    func reloadSection(at indexsets: IndexSet) {
-        collectionView.reloadSections(indexsets)
+    func reloadSection(type: NFList) {
+        collectionView.reloadSections(IndexSet(integer: type.index))
     }
 }
