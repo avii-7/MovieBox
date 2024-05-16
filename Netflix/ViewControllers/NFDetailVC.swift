@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubeiOSPlayerHelper
 
 final class NFDetailVC: UIViewController {
     
@@ -34,6 +35,7 @@ final class NFDetailVC: UIViewController {
         super.viewDidLoad()
         setupViewController()
         loadVideo()
+        setupDelegates()
         setupViews()
     }
     
@@ -42,18 +44,23 @@ final class NFDetailVC: UIViewController {
     }
     
     private func loadVideo() {
-        Task { @MainActor in
+        detailView.ytPlayerView.isHidden = true
+        
+        Task { @MainActor [weak self] in
             do {
-                if let response = try await viewModel.getVideos(category: NFCategory.Movie, id: movie.id) {
+                if let response = try await self!.viewModel.getVideos(category: NFCategory.Movie, id: self!.movie.id) {
                     
                    let video = response.results.first {
                         $0.type == TypeEnum.trailer &&
                         $0.site == Site.youTube
                     }
                     
-                    guard let video else { return }
+                    guard let video else {
+                        print("No video available")
+                        return
+                    }
                     
-                    detailView.ytPlayerView.load(withVideoId: video.key)
+                    self?.detailView.ytPlayerView.load(withVideoId: video.key)
                 }
                 
             }
@@ -66,5 +73,17 @@ final class NFDetailVC: UIViewController {
     private func setupViews() {
         detailView.titleLabel.text = movie.title
         detailView.descriptionLabel.text = movie.overview
+    }
+    
+    private func setupDelegates() {
+        detailView.ytPlayerView.delegate = self
+    }
+}
+
+extension NFDetailVC: YTPlayerViewDelegate {
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        detailView.ytPlayerView.isHidden = false
+        print("Player is now ready !")
     }
 }

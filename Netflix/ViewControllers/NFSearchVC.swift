@@ -33,7 +33,9 @@ final class NFSearchVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
-        let searchController = UISearchController(searchResultsController: searchResultVC)
+        let searchController = UISearchController(
+            searchResultsController: UINavigationController(rootViewController: searchResultVC)
+        )
         searchController.searchResultsUpdater = searchResultVC
         navigationItem.searchController = searchController
     }

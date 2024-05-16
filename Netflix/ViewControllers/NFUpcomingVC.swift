@@ -33,9 +33,10 @@ final class NFUpcomingVC: UIViewController {
     }
     
     private func getMovieList() {
-        Task { @MainActor in
+        Task { @MainActor [weak self] in
             do {
-                let movieList = try await viewModel.getUpcomingMovieList()
+                let movieList = try await self!.viewModel.getUpcomingMovieList()
+                guard let self else { return }
                 if let movieList {
                     viewModel.setMovieItems(movieList)
                     upcomingView.tableView.reloadData()
@@ -71,5 +72,11 @@ extension NFUpcomingVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = viewModel.movieList[indexPath.row]
+        let detailVC = NFDetailVC(movie: model)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

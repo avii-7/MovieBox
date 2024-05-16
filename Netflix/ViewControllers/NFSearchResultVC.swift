@@ -33,7 +33,7 @@ final class NFSearchResultVC: UIViewController {
     private func getMovieList(for text: String) {
         Task { @MainActor [weak self] in
             do {
-                let movieList = try await self?.viewModel.getMovieList(for: text)
+                let movieList = try await self!.viewModel.getMovieList(for: text)
                 if let movieList {
                     guard let self else { return }
                     viewModel.setMovieItems(movieList)
@@ -71,6 +71,13 @@ extension NFSearchResultVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = viewModel.movieList[indexPath.row]
+        let detailVC = NFDetailVC(movie: model)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
