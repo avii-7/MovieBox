@@ -32,7 +32,7 @@ final class NFDownloadsVC: UIViewController {
     }
     
     private func setupViewController() {
-        title = "Downloading"
+        title = "Downloads"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
