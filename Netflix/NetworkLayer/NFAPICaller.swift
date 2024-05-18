@@ -39,29 +39,29 @@ final class NFAPICaller {
     }
     
     func getURL(from restRequest: NFAPIRequestProtocol) -> URL? {
-    
-    let baseURL = restRequest.baseURL
-    
-    guard var url = URL(string: baseURL) else { return nil }
-    
-    url.append(path: restRequest.version, directoryHint: .notDirectory)
-    
-    if restRequest.pathComponents.isEmpty == false {
-        for pathComponent in restRequest.pathComponents {
-            url.append(path: pathComponent, directoryHint: .notDirectory)
+        
+        let baseURL = restRequest.baseURL
+        
+        guard var url = URL(string: baseURL) else { return nil }
+        
+        url.append(path: restRequest.version, directoryHint: .notDirectory)
+        
+        if restRequest.pathComponents.isEmpty == false {
+            for pathComponent in restRequest.pathComponents {
+                url.append(path: pathComponent, directoryHint: .notDirectory)
+            }
         }
+        
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return nil
+        }
+        
+        if let queryItems = restRequest.queryItems {
+            urlComponents.queryItems = queryItems
+        }
+        
+        print(urlComponents.url ?? "Fail")
+        
+        return urlComponents.url
     }
-    
-    guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-        return nil
-    }
-    
-    if let queryItems = restRequest.queryItems {
-        urlComponents.queryItems = queryItems
-    }
-    
-    print(urlComponents.url ?? "Fail")
-    
-    return urlComponents.url
-}
 }

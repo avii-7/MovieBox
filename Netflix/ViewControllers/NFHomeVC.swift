@@ -13,8 +13,6 @@ final class HomeVC: UIViewController {
     
     private var viewModel: NFHomeViewVM!
     
-    private var randomHeroHeaderMovieItem: MovieItem?
-    
     override func loadView() {
         homeView = NFHomeView()
         view = homeView
@@ -67,11 +65,14 @@ final class HomeVC: UIViewController {
                     homeView.reloadSection(type: NFList.nowPlaying)
                 }
                 
-                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .popular)){
+                if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .popular)) {
                     viewModel.setResponse(category: .popular, response: response)
-                    randomHeroHeaderMovieItem = response.results.randomElement()
                     homeView.reloadSection(type: NFList.popular)
-                    homeView.reloadSection(type: NFList.banner)
+                    
+                    if let randomMovie = response.results.randomElement() {
+                        viewModel.setBannerResponse(response: randomMovie)
+                        homeView.reloadSection(type: NFList.banner)
+                    }
                 }
                 
                 if let response: MovieResponse = try await viewModel.get(categoryList: .Movie(list: .topRated)) {
@@ -127,42 +128,37 @@ extension HomeVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.section == 0 {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.Identifier, for: indexPath) as? BannerCollectionViewCell {
-                cell.config(model: randomHeroHeaderMovieItem)
-                return cell;
+        let identifier = indexPath.section == 0
+        ? BannerCollectionViewCell.Identifier
+        : CategoryItemCollectionViewCell.Identifier
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        
+        if let listCell = cell as? NFMovieCellProtocol {
+            
+            let section = viewModel.sections[indexPath.section]
+            
+            let model: MovieItem?
+            
+            switch section {
+            case .nowPlaying(let vm):
+                model = vm.items[indexPath.row]
+            case .popular(let vm):
+                model = vm.items[indexPath.row]
+            case .topRated(let vm):
+                model = vm.items[indexPath.row]
+            case .upcoming(let vm):
+                model = vm.items[indexPath.row]
+            case .banner(let vm):
+                model = vm.model
             }
-        }
-        else {
-            if let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CategoryItemCollectionViewCell.Identifier,
-                for: indexPath
-            ) as? CategoryItemCollectionViewCell {
-                
-                let section = viewModel.sections[indexPath.section]
-                
-                switch section {
-                case .nowPlaying(let vm):
-                    let movieItem = vm.items[indexPath.row]
-                    cell.config(movieItem)
-                case .popular(let vm):
-                    let movieItem = vm.items[indexPath.row]
-                    cell.config(movieItem)
-                case .topRated(let vm):
-                    let movieItem = vm.items[indexPath.row]
-                    cell.config(movieItem)
-                case .upcoming(let vm):
-                    let movieItem = vm.items[indexPath.row]
-                    cell.config(movieItem)
-                default: // banner
-                    break
-                }
-                
-                return cell;
+            
+            if let model {
+                listCell.config(model: model)
             }
         }
         
-        return UICollectionViewCell()
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -198,6 +194,38 @@ extension HomeVC: UICollectionViewDataSource {
 extension HomeVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let movie = getModel(at: indexPath) {
+            let detailVC = NFDetailVC(movie: movie)
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        let config = UIContextMenuConfiguration(actionProvider:  { _ in
+            let downloadAction = UIAction(title: "Download", image: UIImage(systemName: "arrow.down")) { action in
+                
+                guard let indexPath = indexPaths.first else { return }
+                
+                if let movie = self.getModel(at: indexPath) {
+                    let result =  DataPersistenceManager.shared.save(model: movie)
+                    if result == false {
+                        print("Already exists")
+                    }
+                }
+            }
+            
+            return UIMenu(options: .displayInline, children: [downloadAction])
+        })
+        return config
+    }
+}
+
+extension HomeVC {
+    
+    private func getModel(at indexPath: IndexPath) -> MovieItem? {
+        
         let section = viewModel.sections[indexPath.section]
         
         let movie: MovieItem?
@@ -215,9 +243,6 @@ extension HomeVC: UICollectionViewDelegate {
             movie = vm.items[indexPath.row]
         }
         
-        if let movie {
-            let detailVC = NFDetailVC(movie: movie)
-            navigationController?.pushViewController(detailVC, animated: true)
-        }
+        return movie
     }
 }

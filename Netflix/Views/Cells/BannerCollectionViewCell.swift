@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NFMovieCellProtocol {
+    func config(model: MovieItem)
+}
+
 final class BannerCollectionViewCell: UICollectionViewCell {
     
     static let Identifier = String(describing: BannerCollectionViewCell.self)
@@ -19,24 +23,6 @@ final class BannerCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let playButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .bordered()
-        button.setTitle("Play", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        return button
-    }()
-    
-    private let downloadButton: UIButton = {
-        let button = UIButton()
-        button.configuration = .bordered()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Download", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        return button
-    }()
-    
     private let transparentView : UILayoutGuide  = {
         let layoutGuide = UILayoutGuide()
         return layoutGuide;
@@ -45,8 +31,6 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(bannerImageView)
-        contentView.addSubview(playButton)
-        contentView.addSubview(downloadButton)
         contentView.addLayoutGuide(transparentView)
         addGradient()
         addConstraints()
@@ -75,26 +59,19 @@ final class BannerCollectionViewCell: UICollectionViewCell {
             bannerImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ]
         
-        let buttonConstraints = [
+        let transparentViewConstraints = [
             transparentView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
             transparentView.widthAnchor.constraint(equalToConstant: 1),
             transparentView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             transparentView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
-            playButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            playButton.rightAnchor.constraint(equalTo: transparentView.leftAnchor, constant: -15),
-            playButton.widthAnchor.constraint(equalTo: downloadButton.widthAnchor),
-            
-            downloadButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            downloadButton.leftAnchor.constraint(equalTo: transparentView.rightAnchor, constant: 15),
         ]
         
-        NSLayoutConstraint.activate(bannerImageConstraints + buttonConstraints)
+        NSLayoutConstraint.activate(bannerImageConstraints + transparentViewConstraints)
     }
-    
-    func config(model: MovieItem?) {
-        
-        guard let model else { return }
+}
+
+extension BannerCollectionViewCell: NFMovieCellProtocol {
+    func config(model: MovieItem) {
         
         if let posterPath = model.backdropPath {
             let fullImageURLString = ImageRequestBuilder.get(for: posterPath, width: Int(500))

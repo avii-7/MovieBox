@@ -7,63 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "16F10C03-F0D9-4136-AC32-C300CF6BFF29"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Netflix/ViewControllers/NFDetailVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "loadVideo()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "16F10C03-F0D9-4136-AC32-C300CF6BFF29 - b38263d92c2b279b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Netflix.NFDetailVC.loadVideo() -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/ViewControllers/NFDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "516">
-               </Location>
-               <Location
-                  uuid = "16F10C03-F0D9-4136-AC32-C300CF6BFF29 - b38263d92c2b279b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Netflix.NFDetailVC.loadVideo() -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/ViewControllers/NFDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "540">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0974E45E-3F7D-45A9-B473-9AF9DD16635D"
+            uuid = "7A63D774-F908-4E5C-B6DA-279B5AEF1B34"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Netflix/Views/Cells/BannerCollectionViewCell.swift"
+            filePath = "Netflix/Views/Cells/CategoryItemCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "config(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,144 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8BA5FF96-4B4A-4E21-A8C6-1DD174BE1863"
+            uuid = "44E434BF-0394-4713-9612-C5542491C375"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Netflix/ViewControllers/NFHomeVC.swift"
+            filePath = "Netflix/DataPersistence/DataPersistenceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "save(model:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CDFB81DC-C9B4-462B-9D61-47B24A055E29"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Netflix/ViewControllers/NFHomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "callApis()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CDFB81DC-C9B4-462B-9D61-47B24A055E29 - d22e251a18e0afb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Netflix.HomeVC.callApis() -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/ViewControllers/NFHomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "692">
-               </Location>
-               <Location
-                  uuid = "CDFB81DC-C9B4-462B-9D61-47B24A055E29 - d22e251a18e0a7f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Netflix.HomeVC.callApis() -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/ViewControllers/NFHomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "1148">
-               </Location>
-               <Location
-                  uuid = "CDFB81DC-C9B4-462B-9D61-47B24A055E29 - d22e251a18e0a7f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Netflix.HomeVC.callApis() -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/ViewControllers/NFHomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "1228">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "76DB4B68-575D-4B39-A9CB-E769A6BD90E9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Netflix/ViewControllers/NFHomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "04F6A837-CFE3-47E8-A4B9-62B228A61CA0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Netflix/Views/Cells/BannerCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "config(model:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "04F6A837-CFE3-47E8-A4B9-62B228A61CA0 - d2b9cd6aaa6bb9d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Netflix.BannerCollectionViewCell.config(model: Swift.Optional&lt;Netflix.MovieItem&gt;) -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/Views/Cells/BannerCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "704">
-               </Location>
-               <Location
-                  uuid = "04F6A837-CFE3-47E8-A4B9-62B228A61CA0 - d2b9cd6aaa6bb9d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Netflix.BannerCollectionViewCell.config(model: Swift.Optional&lt;Netflix.MovieItem&gt;) -&gt; ()"
-                  moduleName = "Netflix"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/avii/Desktop/My%20Projects/Netflix/Netflix/Views/Cells/BannerCollectionViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "480">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

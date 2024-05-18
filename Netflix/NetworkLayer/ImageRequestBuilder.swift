@@ -6,7 +6,6 @@
 //
 
 import Foundation
-// https://image.tmdb.org/t/p/w300/nVOZuxRiBygJ3VmXc9QcDGZfHzD.jpg
 
 struct ImageRequestBuilder {
     
@@ -14,7 +13,6 @@ struct ImageRequestBuilder {
     
     static let width = 300
     
-    // Todo: Concatenation Problem
     static func get(for path: String, width: Int = width) -> String {
         return "\(baseUrl)/w\(width)/\(path)"
     }

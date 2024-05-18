@@ -42,7 +42,7 @@ extension NFCategoryVideEndPoint: NFAPIRequestProtocol {
     var headers: [String : String]? {
         [
             "accept": "application/json",
-            "Authorization": "Bearer \(NFAPIConstants.ACESS_TOKEN)"
+            "Authorization": "Bearer \(NFConfiguration.accessToken.getValue())"
         ]
     }
 }

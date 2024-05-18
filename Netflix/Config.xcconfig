@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  Netflix
+//
+//  Created by Arun on 18/05/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = 2606c88180e76b70d3fd5037f74403db
+ACESS_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjA2Yzg4MTgwZTc2YjcwZDNmZDUwMzdmNzQ0MDNkYiIsInN1YiI6IjYxMzBkMzMxMzU3YzAwMDA2NWE2MTk0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.DmPKoOChiE4CWGO9m27kxIIwERDd4-Pu1fAN-V01DIg

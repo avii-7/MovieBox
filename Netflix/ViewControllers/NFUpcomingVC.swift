@@ -75,6 +75,7 @@ extension NFUpcomingVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let model = viewModel.movieList[indexPath.row]
         let detailVC = NFDetailVC(movie: model)
         navigationController?.pushViewController(detailVC, animated: true)

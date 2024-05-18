@@ -15,6 +15,7 @@ final class CategoryHeaderCollectionReusableView: UICollectionReusableView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Jason Bling"
+        label.font = .preferredFont(forTextStyle: .title3)
         return label
     }()
     
@@ -30,10 +31,10 @@ final class CategoryHeaderCollectionReusableView: UICollectionReusableView {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5)
         ])
     }
     

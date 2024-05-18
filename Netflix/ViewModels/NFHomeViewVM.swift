@@ -17,7 +17,9 @@ final class NFHomeViewVM {
     
     private func setupSections() {
         
-        sections.append(.banner(viewModel: NFBannerViewModel(bannerURLString: "")))
+        sections.append(Section.banner(
+            viewModel: NFBannerViewModel()
+        ))
         
         sections.append(Section.nowPlaying(
             viewModel: NFCategoryViewModel(name: NFList.nowPlaying.name, items: [])
@@ -60,6 +62,17 @@ final class NFHomeViewVM {
                 vm.setMovieItems(movieResults)
             case .upcoming(let vm):
                 vm.setMovieItems(movieResults)
+            }
+        }
+    }
+    
+    internal func setBannerResponse(response: MovieItem) {
+        if let section = sections.first(where: { $0.category ==  NFList.banner}) {
+            switch section {
+            case .banner(let vm):
+                vm.setModel(model: response)
+            default:
+                break
             }
         }
     }

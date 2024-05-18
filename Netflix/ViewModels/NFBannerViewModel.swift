@@ -9,13 +9,9 @@ import Foundation
 
 final class NFBannerViewModel {
     
-    private(set) var bannerURLString: String?
+    var model: MovieItem?
     
-    init(bannerURLString: String?) {
-        self.bannerURLString = bannerURLString
+    func setModel(model: MovieItem) {
+        self.model = model
     }
-    
-//    func setUrl(_ url: URL) {
-//        bannerURLString = url
-//    }
 }

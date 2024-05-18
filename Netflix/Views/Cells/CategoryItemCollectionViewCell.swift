@@ -39,7 +39,12 @@ final class CategoryItemCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func config(_ model: MovieItem) {
+   
+}
+
+extension CategoryItemCollectionViewCell: NFMovieCellProtocol {
+    
+    func config(model: MovieItem) {
         if let posterPath = model.posterPath {
             let imageUrlString = ImageRequestBuilder.get(for: posterPath)
             if let url = URL(string: imageUrlString) {
