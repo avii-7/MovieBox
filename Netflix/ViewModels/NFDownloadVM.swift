@@ -22,8 +22,9 @@ final class NFDownloadVM {
         movieList.append(contentsOf: movies)
     }
     
-    func delete(using id: Int) {
-        movieList.remove(at: id)
+    func delete(at index: Int) {
+        let id = movieList[index].id
+        movieList.remove(at: index)
         repository.delete(by: Int64(id))
     }
 }
