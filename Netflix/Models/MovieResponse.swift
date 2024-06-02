@@ -54,23 +54,3 @@ struct MovieItem: Decodable {
         case voteCount = "vote_count"
     }
 }
-
-extension MovieItem {
-    static func convert(from model: MovieItemCD) -> MovieItem {
-        return MovieItem(
-            adult: false,
-            id: Int(model.id),
-            originalLanguage: "",
-            originalTitle: "",
-            overview: model.overview ?? "",
-            popularity: 0,
-            backdropPath: model.backdropPath ?? "",
-            posterPath: model.posterPath ?? "",
-            releaseDate: "",
-            title: model.title ?? "",
-            video: false,
-            voteAverage: 0,
-            voteCount: 0
-        )
-    }
-}

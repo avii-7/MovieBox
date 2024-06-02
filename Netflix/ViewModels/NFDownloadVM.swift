@@ -11,17 +11,19 @@ final class NFDownloadVM {
     
     var movieList = [MovieItem]()
     
-    init() {
-        fetchAllMovies()
-    }
-
-    private func fetchAllMovies() {
-        movieList = DataPersistenceManager.shared.getAllMovieItems()
+    private let repository: MovieDataRespository
+    
+    init(repository: MovieDataRespository) {
+        self.repository = repository
     }
     
-    func delete(at indexPath: IndexPath) {
-        let itemId = movieList[indexPath.row].id
-        movieList.remove(at: indexPath.row)
-        DataPersistenceManager.shared.delete(id: itemId)
+    func fetchAllMovies() {
+        let movies = repository.getAllMovies()
+        movieList.append(contentsOf: movies)
+    }
+    
+    func delete(using id: Int) {
+        movieList.remove(at: id)
+        repository.delete(by: Int64(id))
     }
 }

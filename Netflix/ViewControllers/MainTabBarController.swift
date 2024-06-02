@@ -12,10 +12,14 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nc1 = UINavigationController(rootViewController: HomeVC())
+        let homeVC = getHomeVC()
+        let nc1 = UINavigationController(rootViewController: homeVC)
+        
         let nc2 = UINavigationController(rootViewController: NFUpcomingVC())
         let nc3 = UINavigationController(rootViewController: NFSearchVC())
-        let nc4 = UINavigationController(rootViewController: NFDownloadsVC())
+        
+        let downloadVC = getDownloadVC()
+        let nc4 = UINavigationController(rootViewController: downloadVC)
          
         nc1.tabBarItem.image = UIImage(systemName: "house")
         nc2.tabBarItem.image = UIImage(systemName: "play.circle")
@@ -30,6 +34,20 @@ final class MainTabBarController: UITabBarController {
         tabBar.tintColor = .label
         
         viewControllers = [nc1, nc2, nc3, nc4]
+    }
+    
+    private func getHomeVC() -> NFHomeVC {
+        let dataRepo = MovieCoreDataRespository()
+        let homeVM = NFHomeViewVM(repository: dataRepo)
+        let vc = NFHomeVC(viewModel: homeVM)
+        return vc
+    }
+    
+    private func getDownloadVC() -> NFDownloadsVC {
+        let dataRepo = MovieCoreDataRespository()
+        let homeVM = NFDownloadVM(repository: dataRepo)
+        let vc = NFDownloadsVC(viewModel: homeVM)
+        return vc
     }
 }
 

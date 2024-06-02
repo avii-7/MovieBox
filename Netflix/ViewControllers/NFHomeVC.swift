@@ -7,11 +7,20 @@
 
 import UIKit
 
-final class HomeVC: UIViewController {
+final class NFHomeVC: UIViewController {
     
     private var homeView: NFHomeView!
     
-    private var viewModel: NFHomeViewVM!
+    private let viewModel: NFHomeViewVM
+    
+    init(viewModel: NFHomeViewVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         homeView = NFHomeView()
@@ -21,7 +30,6 @@ final class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavBar()
-        setupViewModel()
         setupView()
         callApis()
         view.backgroundColor = .systemBackground
@@ -51,10 +59,6 @@ final class HomeVC: UIViewController {
     private func setupView() {
         homeView.collectionView.dataSource = self
         homeView.collectionView.delegate = self
-    }
-    
-    private func setupViewModel() {
-        viewModel = NFHomeViewVM()
     }
     
     private func callApis() {
@@ -104,7 +108,7 @@ final class HomeVC: UIViewController {
     }
 }
 
-extension HomeVC: UICollectionViewDataSource {
+extension NFHomeVC: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         viewModel.sections.count
@@ -191,7 +195,7 @@ extension HomeVC: UICollectionViewDataSource {
     }
 }
 
-extension HomeVC: UICollectionViewDelegate {
+extension NFHomeVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -209,7 +213,7 @@ extension HomeVC: UICollectionViewDelegate {
                 guard let indexPath = indexPaths.first else { return }
                 
                 if let movie = self.getModel(at: indexPath) {
-                    let result =  DataPersistenceManager.shared.save(model: movie)
+                    let result = self.viewModel.saveMovie(movie)
                     if result == false {
                         print("Already exists")
                     }
@@ -222,7 +226,7 @@ extension HomeVC: UICollectionViewDelegate {
     }
 }
 
-extension HomeVC {
+extension NFHomeVC {
     
     private func getModel(at indexPath: IndexPath) -> MovieItem? {
         

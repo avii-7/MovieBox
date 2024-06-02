@@ -11,7 +11,16 @@ final class NFDownloadsVC: UIViewController {
 
     private var downloadView: NFDownloadView!
     
-    private var viewModel: NFDownloadVM!
+    private let viewModel: NFDownloadVM
+    
+    init(viewModel: NFDownloadVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         downloadView = NFDownloadView()
@@ -21,7 +30,7 @@ final class NFDownloadsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewModel = NFDownloadVM()
+        viewModel.fetchAllMovies()
         setupViewController()
         setupTableView()
     }
@@ -67,10 +76,10 @@ extension NFDownloadsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            viewModel.delete(at: indexPath)
+            let model = viewModel.movieList[indexPath.row]
+            viewModel.delete(using: model.id)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
 }
 

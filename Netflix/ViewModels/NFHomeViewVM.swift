@@ -11,7 +11,10 @@ final class NFHomeViewVM {
     
     var sections = [Section]()
     
-    init() {
+    private let repository: MovieDataRespository
+    
+    init(repository: MovieDataRespository) {
+        self.repository = repository
         setupSections()
     }
     
@@ -75,5 +78,9 @@ final class NFHomeViewVM {
                 break
             }
         }
+    }
+    
+    internal func saveMovie(_ movie: MovieItem) -> Bool {
+        repository.save(movie)
     }
 }
