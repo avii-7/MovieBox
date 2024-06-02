@@ -76,8 +76,7 @@ extension NFDownloadsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            let model = viewModel.movieList[indexPath.row]
-            viewModel.delete(using: model.id)
+            viewModel.delete(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
