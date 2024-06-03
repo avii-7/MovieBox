@@ -18,6 +18,7 @@ final class NFDownloadVM {
     }
     
     func fetchAllMovies() {
+        movieList.removeAll()
         let movies = repository.getAllMovies()
         movieList.append(contentsOf: movies)
     }

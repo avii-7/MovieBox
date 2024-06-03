@@ -30,10 +30,15 @@ final class NFDownloadsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        viewModel.fetchAllMovies()
         setupViewController()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchAllMovies()
         showPlaceholderIfEmpty()
+        downloadView.tableView.reloadData()
     }
     
     private func setupTableView() {
