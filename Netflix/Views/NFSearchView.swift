@@ -28,11 +28,11 @@ final class NFSearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addViews() {
+    private func addViews() {
         addSubview(placeholderLabel)
     }
     
-    func addConstraints() {
+    private func addConstraints() {
         NSLayoutConstraint.activate([
             placeholderLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
             placeholderLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),

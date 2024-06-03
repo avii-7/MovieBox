@@ -33,6 +33,7 @@ final class NFDownloadsVC: UIViewController {
         viewModel.fetchAllMovies()
         setupViewController()
         setupTableView()
+        showPlaceholderIfEmpty()
     }
     
     private func setupTableView() {
@@ -44,6 +45,11 @@ final class NFDownloadsVC: UIViewController {
         title = "Downloads"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    private func showPlaceholderIfEmpty() {
+        let visible = viewModel.movieList.isEmpty
+        downloadView.placeholderLabel.isHidden = !visible
     }
 }
 
