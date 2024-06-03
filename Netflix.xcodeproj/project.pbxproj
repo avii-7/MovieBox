@@ -25,7 +25,6 @@
 		866506B12BF0CB750083FA99 /* NFList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B02BF0CB750083FA99 /* NFList.swift */; };
 		866506B32BF0CCE80083FA99 /* NFList+URLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B22BF0CCE80083FA99 /* NFList+URLPath.swift */; };
 		866506B52BF0CF200083FA99 /* NFCategoryListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866506B42BF0CF200083FA99 /* NFCategoryListType.swift */; };
-		867535452BF0510700A585A3 /* NFSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867535442BF0510700A585A3 /* NFSearchView.swift */; };
 		867927912BF873CE00F70D73 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867927902BF873CE00F70D73 /* PersistenceManager.swift */; };
 		867927932BF8805B00F70D73 /* NFDownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867927922BF8805B00F70D73 /* NFDownloadView.swift */; };
 		867927952BF880A100F70D73 /* NFDownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867927942BF880A100F70D73 /* NFDownloadVM.swift */; };
@@ -34,7 +33,7 @@
 		868AE0DD2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AE0DC2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift */; };
 		868AE0DF2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868AE0DE2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift */; };
 		86B01A9D2BCD979D00AC7A91 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B01A9C2BCD979D00AC7A91 /* MovieResponse.swift */; };
-		86BCE1362BEC79F900097AC4 /* NFSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */; };
+		86BCE1362BEC79F900097AC4 /* NFSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE1352BEC79F900097AC4 /* NFSearchView.swift */; };
 		86BCE1382BEC7CDD00097AC4 /* NFSearchViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BCE1372BEC7CDD00097AC4 /* NFSearchViewVM.swift */; };
 		86D34FC22BCA85D700E76076 /* CategoryItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D34FC12BCA85D700E76076 /* CategoryItemCollectionViewCell.swift */; };
 		86D34FC62BCA87F600E76076 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D34FC52BCA87F600E76076 /* BannerCollectionViewCell.swift */; };
@@ -51,11 +50,10 @@
 		86DF31872BC5AEA400D7332B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DF31852BC5AEA400D7332B /* LaunchScreen.storyboard */; };
 		86DF31902BC5B15300D7332B /* NFHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF318F2BC5B15300D7332B /* NFHomeVC.swift */; };
 		86DF31922BC5B15D00D7332B /* NFUpcomingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF31912BC5B15D00D7332B /* NFUpcomingVC.swift */; };
-		86DF31952BC5B17200D7332B /* NFSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF31942BC5B17200D7332B /* NFSearchVC.swift */; };
 		86DF31972BC5B2EE00D7332B /* NFDownloadsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DF31962BC5B2EE00D7332B /* NFDownloadsVC.swift */; };
 		86E2DC1F2C0CA636002DF2E9 /* MovieCoreDataRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2DC1E2C0CA636002DF2E9 /* MovieCoreDataRespository.swift */; };
 		86E2DC222C0CAC86002DF2E9 /* CDMovieItem + DomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2DC212C0CAC86002DF2E9 /* CDMovieItem + DomainModel.swift */; };
-		86FBC1F92BEFA39D0003AE43 /* NFSearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBC1F82BEFA39D0003AE43 /* NFSearchResultVC.swift */; };
+		86FBC1F92BEFA39D0003AE43 /* NFSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FBC1F82BEFA39D0003AE43 /* NFSearchVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +73,6 @@
 		866506B02BF0CB750083FA99 /* NFList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFList.swift; sourceTree = "<group>"; };
 		866506B22BF0CCE80083FA99 /* NFList+URLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NFList+URLPath.swift"; sourceTree = "<group>"; };
 		866506B42BF0CF200083FA99 /* NFCategoryListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryListType.swift; sourceTree = "<group>"; };
-		867535442BF0510700A585A3 /* NFSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchView.swift; sourceTree = "<group>"; };
 		867927902BF873CE00F70D73 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		867927922BF8805B00F70D73 /* NFDownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDownloadView.swift; sourceTree = "<group>"; };
 		867927942BF880A100F70D73 /* NFDownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDownloadVM.swift; sourceTree = "<group>"; };
@@ -84,7 +81,7 @@
 		868AE0DC2BF1139A0088CC38 /* NFCategoryVideEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryVideEndPoint.swift; sourceTree = "<group>"; };
 		868AE0DE2BF11A7B0088CC38 /* NFCategoryVideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCategoryVideoResponse.swift; sourceTree = "<group>"; };
 		86B01A9C2BCD979D00AC7A91 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
-		86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchResultView.swift; sourceTree = "<group>"; };
+		86BCE1352BEC79F900097AC4 /* NFSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchView.swift; sourceTree = "<group>"; };
 		86BCE1372BEC7CDD00097AC4 /* NFSearchViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchViewVM.swift; sourceTree = "<group>"; };
 		86BFB2F22BF8E0B900B4887D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		86D34FC12BCA85D700E76076 /* CategoryItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,11 +101,10 @@
 		86DF31882BC5AEA400D7332B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86DF318F2BC5B15300D7332B /* NFHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFHomeVC.swift; sourceTree = "<group>"; };
 		86DF31912BC5B15D00D7332B /* NFUpcomingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFUpcomingVC.swift; sourceTree = "<group>"; };
-		86DF31942BC5B17200D7332B /* NFSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchVC.swift; sourceTree = "<group>"; };
 		86DF31962BC5B2EE00D7332B /* NFDownloadsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFDownloadsVC.swift; sourceTree = "<group>"; };
 		86E2DC1E2C0CA636002DF2E9 /* MovieCoreDataRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoreDataRespository.swift; sourceTree = "<group>"; };
 		86E2DC212C0CAC86002DF2E9 /* CDMovieItem + DomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDMovieItem + DomainModel.swift"; sourceTree = "<group>"; };
-		86FBC1F82BEFA39D0003AE43 /* NFSearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchResultVC.swift; sourceTree = "<group>"; };
+		86FBC1F82BEFA39D0003AE43 /* NFSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFSearchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +126,8 @@
 				86D9F22F2BCBC0A700D84982 /* Headers */,
 				86D34FC32BCA85DA00E76076 /* Cells */,
 				8639A57E2BC9A6E300FF4A0F /* NFHomeView.swift */,
-				86BCE1352BEC79F900097AC4 /* NFSearchResultView.swift */,
+				86BCE1352BEC79F900097AC4 /* NFSearchView.swift */,
 				863765302BE7A8A1001BA126 /* NFUpcomingView.swift */,
-				867535442BF0510700A585A3 /* NFSearchView.swift */,
 				866506A12BF0A3570083FA99 /* NFDetailView.swift */,
 				867927922BF8805B00F70D73 /* NFDownloadView.swift */,
 			);
@@ -307,10 +302,9 @@
 			children = (
 				86DF318F2BC5B15300D7332B /* NFHomeVC.swift */,
 				86DF31912BC5B15D00D7332B /* NFUpcomingVC.swift */,
-				86DF31942BC5B17200D7332B /* NFSearchVC.swift */,
 				86DF31962BC5B2EE00D7332B /* NFDownloadsVC.swift */,
 				86DF317E2BC5AEA300D7332B /* MainTabBarController.swift */,
-				86FBC1F82BEFA39D0003AE43 /* NFSearchResultVC.swift */,
+				86FBC1F82BEFA39D0003AE43 /* NFSearchVC.swift */,
 				8665069F2BF0A3410083FA99 /* NFDetailVC.swift */,
 			);
 			path = ViewControllers;
@@ -403,15 +397,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				86D9F2382BCC248B00D84982 /* NFCategoryViewModel.swift in Sources */,
-				86DF31952BC5B17200D7332B /* NFSearchVC.swift in Sources */,
 				86DF317F2BC5AEA300D7332B /* MainTabBarController.swift in Sources */,
 				86DF31972BC5B2EE00D7332B /* NFDownloadsVC.swift in Sources */,
 				86D9F23A2BCC26A600D84982 /* NFHomeViewVM.swift in Sources */,
 				8655340F2BEF0900001C9B57 /* NFAPIRequestProtocol.swift in Sources */,
-				86BCE1362BEC79F900097AC4 /* NFSearchResultView.swift in Sources */,
+				86BCE1362BEC79F900097AC4 /* NFSearchView.swift in Sources */,
 				86E2DC222C0CAC86002DF2E9 /* CDMovieItem + DomainModel.swift in Sources */,
 				86DF317B2BC5AEA300D7332B /* AppDelegate.swift in Sources */,
-				867535452BF0510700A585A3 /* NFSearchView.swift in Sources */,
 				867927912BF873CE00F70D73 /* PersistenceManager.swift in Sources */,
 				865534152BEF4942001C9B57 /* String+Extensions.swift in Sources */,
 				866506A72BF0C2C10083FA99 /* NFCategory+URLPath.swift in Sources */,
@@ -437,7 +429,7 @@
 				86D9F23C2BCC2E1100D84982 /* NFAPICaller.swift in Sources */,
 				863138462BF7D5EA000FC502 /* NetflixCoreData.xcdatamodeld in Sources */,
 				866506A02BF0A3410083FA99 /* NFDetailVC.swift in Sources */,
-				86FBC1F92BEFA39D0003AE43 /* NFSearchResultVC.swift in Sources */,
+				86FBC1F92BEFA39D0003AE43 /* NFSearchVC.swift in Sources */,
 				86B01A9D2BCD979D00AC7A91 /* MovieResponse.swift in Sources */,
 				867927932BF8805B00F70D73 /* NFDownloadView.swift in Sources */,
 				86DF31902BC5B15300D7332B /* NFHomeVC.swift in Sources */,

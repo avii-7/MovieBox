@@ -24,9 +24,9 @@ final class NFSearchViewVM {
         return nil
     }
     
-    func setMovieItems(_ response: MovieResponse) {
+    func setMovieItems(_ response: MovieResponse?) {
         movieList.removeAll()
-        if response.results.isEmpty == false {
+        if let response, response.results.isEmpty == false {
             movieList.append(contentsOf: response.results)
         }
     }

@@ -16,7 +16,9 @@ final class MainTabBarController: UITabBarController {
         let nc1 = UINavigationController(rootViewController: homeVC)
         
         let nc2 = UINavigationController(rootViewController: NFUpcomingVC())
-        let nc3 = UINavigationController(rootViewController: NFSearchVC())
+        
+        let searchVC = getSearchVC()
+        let nc3 = UINavigationController(rootViewController: searchVC)
         
         let downloadVC = getDownloadVC()
         let nc4 = UINavigationController(rootViewController: downloadVC)
@@ -39,15 +41,21 @@ final class MainTabBarController: UITabBarController {
     private func getHomeVC() -> NFHomeVC {
         let dataRepo = MovieCoreDataRespository()
         let homeVM = NFHomeViewVM(repository: dataRepo)
-        let vc = NFHomeVC(viewModel: homeVM)
-        return vc
+        let homeVC = NFHomeVC(viewModel: homeVM)
+        return homeVC
     }
     
     private func getDownloadVC() -> NFDownloadsVC {
         let dataRepo = MovieCoreDataRespository()
-        let homeVM = NFDownloadVM(repository: dataRepo)
-        let vc = NFDownloadsVC(viewModel: homeVM)
-        return vc
+        let downlaodVM = NFDownloadVM(repository: dataRepo)
+        let downloadVC = NFDownloadsVC(viewModel: downlaodVM)
+        return downloadVC
+    }
+    
+    private func getSearchVC() -> NFSearchVC {
+        let searchVM = NFSearchViewVM()
+        let searchVC = NFSearchVC(viewModel: searchVM)
+        return searchVC
     }
 }
 
