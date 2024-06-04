@@ -1,4 +1,4 @@
-# Netflix Clone
+# Movie Box
 
 A project demonstrating the TMDB API for cataloging different categories of movies.
 User can search and download movies. YouTube player is embedded in the details screen so that users can watch trailers and teasers of movies.
