@@ -32,6 +32,17 @@ final class NFDetailView: UIView {
         return label
     }()
     
+    let placeholderYTLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.textAlignment = NSTextAlignment.center
+        label.text = "No video available"
+        label.isHidden = true
+        return label
+    }()
+    
     private let activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +65,7 @@ final class NFDetailView: UIView {
         addSubview(ytPlayerView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
+        addSubview(placeholderYTLabel)
     }
     
     private func addConstraints() {
@@ -70,6 +82,10 @@ final class NFDetailView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             descriptionLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 10),
             descriptionLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -10),
+            
+            placeholderYTLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 130),
+            placeholderYTLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            placeholderYTLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
         ])
     }
     

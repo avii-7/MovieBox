@@ -33,14 +33,9 @@ final class NFDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewController()
         loadVideo()
         setupDelegates()
         setupViews()
-    }
-    
-    private func setupViewController() {
-        //navigationController.sho
     }
     
     private func loadVideo() {
@@ -51,12 +46,13 @@ final class NFDetailVC: UIViewController {
                 if let response = try await self!.viewModel.getVideos(category: NFCategory.Movie, id: self!.movie.id) {
                     
                    let video = response.results.first {
-                        $0.type == TypeEnum.trailer &&
+//                        $0.type == TypeEnum.trailer &&
                         $0.site == Site.youTube
                     }
                     
                     guard let video else {
-                        print("No video available")
+                        self?.detailView.placeholderYTLabel.isHidden = false
+                        self?.detailView.ytPlayerView.isHidden = true
                         return
                     }
                     
