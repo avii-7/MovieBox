@@ -41,8 +41,6 @@ final class NFSearchVC: UIViewController {
     
     private func setupViewController() {
         title = "Search"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
         
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
